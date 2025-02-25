@@ -1,0 +1,205 @@
+
+
+What is XPath?
+
+
+XPath stands for XML Path Language. XPath is mainly used in XSLT(Extensible Stylesheet Language Transformations), A language used to transform XML documents into other formats (XML, HTML, text, etc.). because it enables precise and flexible navigation, querying, and filtering of XML data, which are fundamental operations for transforming XML documents effectively(Processes XML data and converts it into a different format or HTML format to display in a web browser.). but it is also popularly used for navigating through the DOM(Document Object Mode) of any XML-like language document using XPathExpression. 
+
+Types of XPath
+An XPath expression can be written in two ways 
+
+A)Absolute
+B)Relative
+
+
+Definition and Structure:
+
+
+
+Absolute XPath(Precise Data Selection): It starts from the root (html) and traverses down to the desired element, detailing every single element in the hierarchy. The path starts with a single forward slash /, indicating the root. 
+
+For example: /html/body/div[2]/div[2]/div/form/p[1]/input.
+
+
+Relative XPath: It starts from anywhere within the document and typically focuses on identifying elements based on attributes, indexes, or specific tags, not necessarily detailing the entire path from the root. It starts with a double forward slash //, indicating the search can begin anywhere. 
+
+For example: //input[@id=‘username’].
+
+1)Robustness:
+
+Absolute XPath: It is less robust because if there are any changes in the path or structure of the web page, the XPath would break, leading to failed element location.
+
+Relative XPath: It is more robust as it usually focuses on specific attributes or elements, making it less susceptible to changes in the overall structure of the webpage.
+
+2)Length and Complexity:
+
+Absolute XPath: These tend to be longer . They map the entire path from the root to the element, making them more complex.
+
+Relative XPath: They are generally shorter and more concise, targeting specific elements directly without detailing the entire path, reducing complexity.
+
+
+3)Flexibility and Use Cases:
+
+Absolute XPath: It's less commonly used in dynamic web environments where page structures can change frequently.
+
+Relative XPath: More commonly used in web automation and scraping because of its adaptability to web page changes and ability to precisely target elements.
+
+4)Performance:
+
+Absolute XPath: It can be slower in performance as it requires traversing the entire hierarchy of the DOM (Document Object Model) from the root.
+
+Relative XPath: Generally offers better performance as it allows for more direct queries and doesn't necessarily traverse from the root.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Relative xpath
+
+1)Node Navigation
+  			Relative XPath provides a way to traverse XML trees, which is necessary for XSLT to locate nodes for transformation.
+You can navigate:
+Parent nodes (..)
+Child nodes (/)
+Descendant nodes (//)
+Sibling nodes
+
+2)Filtering and Conditions
+ 			Relative XPath allows the use of conditions to filter nodes based on attributes, text values, or structure
+
+3)Data Manipulation
+			Relative XPath provides functions for string manipulation, numeric calculations, and boolean operations. These are often needed during transformations to prepare data for output.
+
+boolean()---->	This function accepts locator as parameter and it return true if the passed locator is found else returns false
+
+count()------>	This function accepts locator as parameter and returns the count of elements found
+
+position()--->	This function is used when we need to identify an element based on its position
+
+id()--------->	This function accepts id attribute of the element and returns the element if found
+
+
+
+--------------------------------------------------------------------------------------------------
+
+###Basic xpath
+
+1)Attribute based xpath
+
+Syntax: //tagname[@attribute='attributeValue'] 
+
+Example://label[@for ='username']
+	 	//label[@for='password']
+
+
+2)Text based xpath 
+
+Syntax: //tagname[text()='text value'] 
+
+Example://h2[text()='Leaftaps Login'] 
+		//span[text()='Learn More'] 
+		//a[text()='Commerce Setup Assistant']
+
+3)Functions based xpath
+
+Leverages functions like:
+
+--->Contains() returns elements with partial matches, 
+
+Example: //div[contains(@class, ‘header’)].
+
+--->Starts-With(): Matches elements whose attributes begin with a certain value, 
+
+Example: //input[starts-with(@id, ‘user’)].
+
+
+
+Partial text based xpath
+
+syntax:
+
+		//tagname[contains(text(),'partial text')] 
+
+Example: //a[contains(text(),'Lightning E')]
+
+
+
+Partial Attribute based xpath
+
+syntax: //tagname[starts-with(@attributeName,'partial attribute value')] 
+
+Example: //button[starts-with(@class,'ui-state-disabled')]
+
+
+4)Collection based xpath
+
+Syntax: (any xpath)[index] Index will starts from 1 
+
+Example: (//span[@class=' label bBody'])[3] 
+	(//span[text()='Login'])[2]
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+What is Chained XPath in Selenium?
+
+
+
+A chained XPath in Selenium is the practice of combining numerous XPath queries to locate an element on a web page in a more exact and readable manner. Instead of creating a single, complex XPath, you divide it into smaller, more manageable chunks and connect them together with functions like findElement or findElements.
+
+When to Use Chained XPath?
+
+Chained XPath is especially beneficial for complicated web pages when items are embedded behind multiple levels of HTML tags and you want to keep your test scripts clear and flexible.
+
+Advantages of using Chained Xpath
+
+Readability: Dividing the XPath into smaller sections can make it easier to read and comprehend.
+Reusability: Intermediate elements, such as containers, can be used to locate other child elements in the same scope.
+Flexibility: Chaining enables you to interact with elements step by step, which is useful when working with dynamic information.
+
+
+Example of Chained XPath and Explanation
+Assume you wish to locate a specific input field inside a form with a given id.
+
+Single Complex XPath would be:
+
+(//form[@id='login']/p/input)[3]
+
+This expression locates the input field by specifying the whole path in a single XPath string.
+
+Chained XPath would be:
+
+     WebElement form = driver.findElement(By.xpath("//form[@id='login']"));
+		form.findElement(By.xpath("//input[@id='username']")).sendKeys("Demosalesmanager");
+				or
+		form.findElement(By.id("username")).sendKeys("DemoCsr");
+		form.findElement(By.id("password")).sendKeys("crmsfa");
+		form.findElement(By.className("decorativeSubmit")).click();
+
+
+This method first locates the form element with the id 'login'. Then, within that form, it finds an input field with the id attribute set to 'username'.
+
+The advantages of using chained XPath to locate an ‘input’ field within a ‘form’ are as follows:
+
+1)Improved Readability: 
+		Breaking down the XPath into smaller pieces makes the code easier to read and comprehend. By first locating the ‘form’ element and then the ‘input’ within it, the code becomes more intuitive and error-free.
+
+2)Increased Maintainability: 
+		The intermediate ‘form’ element can be employed to locate further elements within the same ‘form’. This modular approach simplifies code updates and maintenance because changes to the structure of the ‘form’ element do not require modifications to the full XPath query.
+
+3)Simplified Debugging: 
+		Isolating the steps allows you to more easily detect and troubleshoot errors. If the ‘input’ field is not discovered, you can start by ensuring that the ‘form’ element is correctly identified, which will make troubleshooting easier.
+
+4)Effectiveness through Targeted Searches: 
+		Chained XPath restricts the search to a specific section of the Document Object Model (DOM). This can make element location more efficient by lowering the amount of elements Selenium must look for.
+
+5)Flexibility: 
+		Dynamic Content: In dynamic web applications with changing content, chained XPath is useful for dealing for components that may be loaded or modified at runtime. It allows you to focus on a specific area of the page, making it easier to manage dynamic information within a predefined container.
+
+
+Overall, chaining XPath expressions improves code readability and maintainability, particularly in complicated HTML structures.
+
+
+
