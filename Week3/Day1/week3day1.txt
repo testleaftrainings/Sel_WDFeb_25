@@ -1,0 +1,217 @@
+1. ArrayList 📚
+What it is: A dynamic array that grows as you add more items.
+
+Real-world use: Think of it like a shopping list. You can add, remove, or check items easily.
+
+Real-World Example: A Bookshelf
+
+You can add or remove books at any position.
+
+Want the 5th book? Just count and grab it!
+
+
+2. LinkedList 🔗
+What it is: A list where each item is connected to the next (like a chain).
+
+Real-world use: Imagine a line of people waiting for a bus. You can easily add or remove someone from the line.
+
+Real-World Example: Train Carriages 🚄
+
+Each carriage is linked to the next. Add/remove carriages easily, but finding the 10th carriage takes time!
+
+3. HashMap 🗺️
+What it is: A key-value pair storage (like a dictionary).
+
+Real-world use: Think of a phonebook where you look up a name (key) to find a number (value).
+
+Real-World Example: Friend Status Updates 📱
+
+Imagine a social media app where:
+
+Usernames (keys) are linked to their latest status (value).
+
+Want to see Alex’s status? Just search his name! No need to scroll through everyone!
+
+
+
+4. HashSet 🔢
+What it is: A collection of unique items (no duplicates allowed).
+
+Real-world use: Imagine a bag of unique marbles. You can’t have two marbles of the same color.
+
+Social Media "Likes" ❤️
+
+You can’t like the same post twice!
+
+----
+🔗 LinkedHashSet
+Real-World Example: Unique Playlist Songs 🎵
+
+A playlist with no duplicate songs that stays in the order you added them.
+
+7. Queue 🎫
+What it is: A First-In-First-Out (FIFO) structure (like a ticket counter).
+
+5. TreeSet 🌳
+What it is: A sorted set that keeps items in order.
+
+Real-world use: Think of a leaderboard where scores are automatically sorted from lowest to highest
+
+Real-World Example: Classroom Height Chart
+
+Automatically sorts students from shortest to tallest.
+
+Add heights: 160cm, 150cm → Sorted as 150, 160!
+
+6. Stack 📚
+What it is: A Last-In-First-Out (LIFO) structure (like a stack of plates).
+
+Real-world use: Imagine an undo feature in a text editor. The last action you did is the first one to be undone.
+
+Real-World Example: Cafeteria Plate Stack
+
+Last plate added is the first one you take (LIFO).
+
+Example: Plates added: Plate1 → Plate2 → Plate2 is removed first!
+
+
+
+
+Real-world use: Think of a printer queue. The first document sent to the printer is the first one to be printed.
+
+Real-World Example: Lunch Line
+
+First student in line gets food first (FIFO).
+
+Alice joins → Bob joins → Alice gets food first!
+
+
+8.🔐 Base64
+Real-World Example: Email Attachments 📧
+
+When you send a photo via email, it gets converted to text (Base64) because emails can’t send raw binary data.
+
+Like translating a book into Morse code to send via telegraph!
+
+
+9.🧩 BitSet
+Real-World Example: Light Switch Panel 💡
+
+Represents a row of switches (bits) that can be turned ON/OFF efficiently.
+
+
+10. AbstractCollection, AbstractList, AbstractMap 🛠️
+What it is: Base classes to create custom collections, lists, or maps.
+
+Real-world use: Imagine building your own special toolbox. These are the basic tools you start with to create something unique.
+----------------------------------------------------------------------------------------------------------
+
+1. clear() 🧹
+What it does: Removes all elements from the collection.
+
+Parameters: None.
+
+Return type: void (doesn’t return anything).
+
+Use case: When you want to empty the entire collection.
+
+
+2. removeAll() 🗑️
+What it does: Removes only the elements that exist in another collection you provide.
+
+Parameters: A collection of elements to remove.
+
+Return type: boolean (returns true if the collection changed).
+
+Use case: When you want to remove specific elements (based on another collection).
+
+
+
+
+-------------------------------------------------------------------
+Key Points About Implicit Wait:
+
+1)Global Setting:
+It applies to all find_element and find_elements calls throughout the driver session.
+
+2)Polling Mechanism:
+Selenium checks the DOM repeatedly (usually every 500 milliseconds) until the timeout.
+
+3)Non-blocking:
+If the element is found early, it doesn’t wait for the entire timeout.
+
+4)Drawback:
+Implicit wait can slow down your test if overused because it applies to all elements. It’s not as flexible as Explicit Wait, which targets specific conditions.
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+String:
+1.length()
+2.equals()
+3.contains()
+4.equalsIgnorecase()
+5.charAt()
+6.tocharArray()
+
+String value="String methods":
+1.split()  o/p Sring mehods
+2.replace()  's' 'S'
+3.substring() (3,9)  
+
+
+
+
+ing methods
+
+value.split("t");
+S
+ring me
+hods
+
+
+String name="Dilip";
+name.repalce('i','@');
+
+o/p D@l@p
+
+String data="Testleaf 2024";
+data.repalceAll("[a-z A-Z]","@");
+
+
+o/p Testleaf@@@@@
+
+data.replaceAll("[^a-z]"),"&");
+o/p &estleaf&&&&&
+
+SubString
+String value="Week3day2String";
+
+subString(benning index)
+
+value.subString(4);
+o/p : 3day2String
+
+
+subString(benning index ,ending index(ending index-1))
+value.subString(2,9);
+value.subString(2,9-1)=>(2,8);
+
+
+
+String d="Selenium";
+d.toLowerCase();
+
+o/p -> selenium
+
+d.toUppercase();
+
+o/p->SELENIUM
+
+
+
+String amt = "5645";
+convert into int
